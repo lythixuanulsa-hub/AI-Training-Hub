@@ -1,32 +1,31 @@
-﻿Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status
-2026-04-29 02:48:55,Sản xuất,Sản xuất,Buổi 1: Lý thuyết,,2026-05-06,Chiều 15h,6,Pending
-2026-04-29 02:49:23,Sản xuất,Sản xuất,Buổi 2: Thực hành cơ bản,,2026-05-07,Chiều 15h,6,Pending
-2026-04-29 02:50:01,Sản xuất,Sản xuất ACT,Buổi 3: Thực hành nâng cao,,2026-05-13,Chiều 15:00,6,Pending
-2026-04-29 02:50:19,Sản xuất,Sản xuất ACT,Buổi 4: Chia sẻ bài tập,,2026-05-14,Chiều 15:00,6,Pending
-2026-04-29 03:12:43,RD,RD,Buổi 2: Thực hành cơ bản,,2026-05-08,Chiều 13:30,4,Pending
-2026-04-29 03:13:14,RD,RD,Buổi 3: Thực hành nâng cao,,2026-05-15,Chiều 13:30,4,Pending
-2026-04-29 03:13:35,RD,RD,Buổi 4: Chia sẻ bài tập,,2026-05-22,Chiều 13:30,4,Pending
-2026-04-29 03:24:35,Kinh doanh,Kinh doanh+ KHSX,Buổi 1: Lý thuyết,,2026-05-06,Sáng 9:00,10,Pending
-2026-04-29 03:27:00,Kinh doanh,Kho+ thu mua,Buổi 1: Lý thuyết,,2026-05-12,Sáng 9:00,9,Pending
-2026-04-29 03:30:35,Kinh doanh,kinh doanh+ KHSX,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-13,Sáng 9:00,10,Pending
-2026-04-29 03:31:14,Kinh doanh,Thu mua+ Kho,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-08,Sáng 9:00,9,Pending
-2026-04-29 03:31:55,Kinh doanh,Kinh doanh+ KHSX,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-19,Sáng 9:00,10,Pending
-2026-04-29 03:32:28,Kinh doanh,Thu mua+ Kho,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-21,Sáng 9:00,9,Pending
-2026-04-29 03:33:03,Kinh doanh,Kinh doanh+ KHSX,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-26,Sáng 9:00,10,Pending
-2026-04-29 03:34:18,Kinh doanh,Thu mua+ Kho,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-28,Sáng 9:00,9,Pending
-2026-04-29 06:47:40,Kỹ thuật,ACT Kỹ thuật thiết bị ,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-04,Chiều 15:00,6,Pending
-2026-04-29 06:48:26,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-11,Chiều 15:00,6,Pending
-2026-04-29 06:49:17,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-18,Chiều 15:00,6,Pending
-2026-04-29 06:50:10,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-25,Chiều 15:00,6,Pending
-2026-04-29 07:09:33,QC,QC,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-20,Chiều 15:00,9,Pending
-2026-04-29 07:10:48,QC,QC,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-22,Sáng 09:30,9,Pending
-2026-04-29 07:10:58,QC,QC,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-27,Chiều 15:00,9,Pending
-2026-04-29 07:17:52,QC,QC,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-29,Sáng 09:30,9,Pending
-2026-04-29 07:26:25,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-09,Chiều 14:00,6,Pending
-2026-04-29 07:27:05,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-16,Chiều 14:00,6,Pending
-2026-04-29 07:27:32,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-23,Chiều 14:00,6,Pending
-2026-04-29 07:27:52,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-30,Chiều 14:00,6,Pending
-2026-04-29 07:36:55,HR-GA,HR-GA,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-25,Chiều 2:30,6,Pending
-2026-04-29 07:42:09,HR-GA,HR-GA,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-10,Chiều 02:30,6,Pending
-2026-04-29 07:42:56,HR-GA,HR-GA,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-12,Chiều 02:30,6,Pending
-2026-04-29 07:43:39,HR-GA,HR-GA,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-16,Chiều 02:30,6,Pending
+Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status
+2026-05-06 13:28:00,Kinh doanh,Kinh doanh + KHSX,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-06,Sáng / 오전 09:30,6,Pending
+2026-05-06 13:28:00,Sản xuất,Sản xuất ACT,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-07,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,RD,RD,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-08,Chiều / 오후 13:30,4,Pending
+2026-05-06 13:28:00,Kinh doanh,Thu mua + Kho,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-08,Sáng / 오전 09:30,9,Pending
+2026-05-06 13:28:00,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-09,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,Kỹ thuật,Camera module,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-09,Sáng / 오전 09:30,9,Pending
+2026-05-06 13:28:00,Kinh doanh,Thu mua + Kho,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-12,Sáng / 오전 09:30,9,Pending
+2026-05-06 13:28:00,Sản xuất,Sản xuất ACT,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-13,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,Kinh doanh,Kinh doanh + KHSX,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-13,Sáng / 오전 09:30,10,Pending
+2026-05-06 13:28:00,Sản xuất,Sản xuất ACT,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-14,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,Kinh doanh,Kinh doanh + KHSX,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-19,Sáng / 오전 09:30,10,Pending
+2026-05-06 13:28:00,QC,QC,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-20,Chiều / 오후 13:30,12,Pending
+2026-05-06 13:28:00,Sản xuất,Sản xuất ACT,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-21,Sáng / 오전 09:30,6,Pending
+2026-05-06 13:28:00,Kinh doanh,Thu mua + Kho,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-21,Sáng / 오전 09:30,9,Pending
+2026-05-06 13:28:00,RD,RD,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-22,Chiều / 오후 13:30,4,Pending
+2026-05-06 13:28:00,QC,QC,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-22,Sáng / 오전 09:30,12,Pending
+2026-05-06 13:28:00,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-23,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,Kỹ thuật,Camera module,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-23,Sáng / 오전 09:30,9,Pending
+2026-05-06 13:28:00,HR-GA,HR-GA,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-25,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,Kinh doanh,Kinh doanh + KHSX,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-26,Sáng / 오전 09:30,10,Pending
+2026-05-06 13:28:00,QC,QC,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-29,Sáng / 오전 09:30,12,Pending
+2026-05-06 13:28:00,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-30,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,Kỹ thuật,Camera module,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-30,Sáng / 오전 09:30,9,Pending
+2026-05-06 13:28:00,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-04,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,HR-GA,HR-GA,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-10,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-11,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,HR-GA,HR-GA,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-12,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,HR-GA,HR-GA,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-16,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-18,Chiều / 오후 13:30,6,Pending
+2026-05-06 13:28:00,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-25,Chiều / 오후 13:30,6,Pending

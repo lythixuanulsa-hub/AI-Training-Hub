@@ -12,10 +12,11 @@ def init_docs_db(): pass
 def init_trainers_db(): pass
 
 # --- REGISTRATIONS ---
-def get_registrations():
+def get_registrations(use_cache=True):
     conn = get_connection()
+    ttl = 300 if use_cache else 0
     try:
-        df = conn.read(worksheet="Registrations", ttl=0)
+        df = conn.read(worksheet="Registrations", ttl=ttl)
         return df
     except Exception:
         return pd.DataFrame(columns=[
@@ -62,18 +63,19 @@ def delete_registration(index):
     except Exception: return False
 
 # --- DOCUMENTS ---
-def get_documents():
+def get_documents(use_cache=True):
     conn = get_connection()
+    ttl = 300 if use_cache else 0
     try:
-        return conn.read(worksheet="Documents", ttl=0)
+        return conn.read(worksheet="Documents", ttl=ttl)
     except Exception:
-        return pd.DataFrame(columns=['Title', 'Description', 'FileName', 'Category', 'UploadDate'])
+        return pd.DataFrame(columns=['Title', 'Description', 'FileURL', 'Category', 'UploadDate'])
 
-def save_document(title, description, file_name, category):
+def save_document(title, description, file_url, category):
     conn = get_connection()
     df = get_documents()
     new_doc = {
-        'Title': title, 'Description': description, 'FileName': file_name,
+        'Title': title, 'Description': description, 'FileURL': file_url,
         'Category': category, 'UploadDate': datetime.now().strftime("%Y-%m-%d %H:%M")
     }
     df = pd.concat([df, pd.DataFrame([new_doc])], ignore_index=True)
@@ -93,7 +95,7 @@ def delete_document(index):
 def get_trainers():
     conn = get_connection()
     try:
-        return conn.read(worksheet="Trainers", ttl=0)
+        return conn.read(worksheet="Trainers", ttl=300)
     except Exception:
         return pd.DataFrame(columns=['Name', 'Role_VN', 'Role_KR', 'Team', 'Desc', 'ImageFile'])
 

@@ -66,39 +66,39 @@ LANG_DICT = {
         "time_exact": "Giờ cụ thể / 상세 시간:",
         "submit": "Xác nhận Đăng ký / 신청 확인",
         "success": "✅ Đã lưu đăng ký thành công! / 신청이 성공적으로 저장되었습니다!",
-        "error": "⚠️ Vui lòng điền đủ thông tin. / 모든 정보를 입력해 주세요.",
+        "error": "⚠️ Vui lòng điền đủ thông tin. / mọi thông tin đều được yêu cầu.",
         "admin_title": "🔐 Khu vực Quản trị viên / 관리자 전용",
         "password": "Nhập mật khẩu / 비밀번호를 입력하세요:",
         "auth_success": "Xác thực thành công! / 인증 성공!",
         "tab_list": "📊 Danh sách Tổng hợp / 전체 목록",
-        "tab_manage": "🗑️ Quản lý & Xóa / 관리 및 삭제",
-        "tab_docs": "📂 Quản lý Tài liệu / 자료 관리",
-        "list_title": "📊 Toàn bộ danh sách đăng ký / 전체 신청 목록",
-        "download": "📥 Tải xuống (CSV) / 다운로드",
-        "no_data": "Chưa có dữ liệu. / 데이터가 없습니다.",
-        "delete_title": "🗑️ Xóa bản đăng ký / 신청 삭제",
-        "delete_btn": "Xóa / 삭제",
-        "placeholder_team": "Ví dụ: Kỹ thuật... / 예: 기술팀...",
+        "tab_manage": "🗑️ Quản lý & Xóa / quản lý và xóa",
+        "tab_docs": "📂 Quản lý Tài liệu / quản lý tài liệu",
+        "list_title": "📊 Toàn bộ danh sách đăng ký / Toàn bộ danh sách đăng ký",
+        "download": "📥 Tải xuống (CSV) / tải xuống",
+        "no_data": "Chưa có dữ liệu. / Không có dữ liệu.",
+        "delete_title": "🗑️ Xóa bản đăng ký / Xóa bản đăng ký",
+        "delete_btn": "Xóa / Xóa",
+        "placeholder_team": "Ví dụ: Kỹ thuật... / Ví dụ: kỹ thuật...",
         "placeholder_time": "Ví dụ: 09:00...",
-        "placeholder_dept": "Ví dụ: Bảo vệ... / 예: 보안...",
-        "people": "người / 명",
+        "placeholder_dept": "Ví dụ: Bảo vệ... / Ví dụ: bảo vệ...",
+        "people": "người / người",
         "sessions": ["Buổi 1: Lý thuyết / 1회차: 이론", "Buổi 2: Thực hành cơ bản / 2회차: 기본 실습", "Buổi 3: Thực hành nâng cao / 3회차: 심화 실습", "Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유"],
         "stats_title": "📊 Tóm tắt tình hình đăng ký",
         "stat_total_regs": "Lượt đăng ký",
         "stat_depts": "Bộ phận tham gia",
         "stat_total_people": "Tổng số nhân viên",
         "participating_depts_list": "Các Bộ phận đã tham gia:",
-        "trainer_title": "👨‍🏫 Đội ngũ Giảng viên AI / AI 교육 강사팀",
-        "docs_title": "📚 Kho tài liệu đào tạo / 교육 자료실",
-        "docs_no_data": "Chưa có dữ liệu tài liệu. / 교육 자료가 없습니다.",
-        "doc_upload": "Tải lên tài liệu mới / 새 자료 업로드",
-        "doc_name": "Tên tài liệu / 자료명",
-        "doc_desc": "Mô tả ngắn / 설명",
-        "doc_cat": "Danh mục / 카테고리",
-        "doc_file": "Chọn file tài liệu / 파일 선택",
-        "doc_date": "Ngày đăng / 업로드 날짜",
-        "doc_success": "Tải lên thành công! / 업로드 성공!",
-        "doc_download": "Tải về / 다운로드"
+        "trainer_title": "👨‍🏫 Đội ngũ Giảng viên AI / Đội ngũ giảng viên AI",
+        "docs_title": "📚 Kho tài liệu đào tạo / Kho tài liệu đào tạo",
+        "docs_no_data": "Chưa có dữ liệu tài liệu. / Không có tài liệu.",
+        "doc_upload": "Tải lên tài liệu mới / Tải lên tài liệu mới",
+        "doc_name": "Tên tài liệu / Tên tài liệu",
+        "doc_desc": "Mô tả ngắn / Mô tả ngắn",
+        "doc_cat": "Danh mục / Danh mục",
+        "doc_file": "Chọn file tài liệu / Chọn file tài liệu",
+        "doc_date": "Ngày đăng / Ngày đăng",
+        "doc_success": "Tải lên thành công! / Tải lên thành công!",
+        "doc_download": "Tải về / Tải về"
     },
     "한국어": {
         "sidebar_title": "🛠 Quản lý Đào tạo / 교육 관리",
@@ -171,7 +171,14 @@ if "lang" not in st.session_state:
     st.session_state.lang = "Tiếng Việt"
 
 # --- SIDEBAR BRANDING ---
-st.sidebar.image("Hinh anh logo cong ty.png", use_container_width=True)
+try:
+    if os.path.exists("Hinh anh logo cong ty.png"):
+        st.sidebar.image("Hinh anh logo cong ty.png", use_container_width=True)
+    elif os.path.exists("images/Hinh anh logo cong ty.png"):
+        st.sidebar.image("images/Hinh anh logo cong ty.png", use_container_width=True)
+except Exception:
+    pass
+
 st.sidebar.markdown(f'<h1 style="color: #333; font-size: 1.4rem; text-align: center; margin-top: 0; margin-bottom: 20px; border-bottom: 2px solid #4b6cb7; padding-bottom: 10px;">TPM _ AI TRAINING HUB</h1>', unsafe_allow_html=True)
 
 # 1. Language Selection in Sidebar (Moved below title)
@@ -273,15 +280,11 @@ elif menu == T["menu_reg"]:
         with st.form("registration_form", clear_on_submit=True):
             col1, col2 = st.columns(2)
             with col1:
-                # Keep fixed dept options but translate if needed? 
-                # Let's keep them as is or translate the common ones
+                # Keep fixed dept options
                 dept_options = ["Kỹ thuật", "Sản xuất", "QC", "RD", "Kinh doanh", "Kế toán", "Kho", "Khác (tự nhập)"]
                 if lang == "한국어":
                     dept_options_kr = ["기술", "생산", "QC", "RD", "영업", "회계", "창고", "기타 (직접 입력)"]
                     dept_selection = st.selectbox(T["dept"], dept_options_kr)
-                    # Map back to VN for DB or keep KR? User might want consistent DB.
-                    # For now, let's keep the DB consistent in Vietnamese or use what's selected.
-                    # Usually better to store raw input.
                 else:
                     dept_selection = st.selectbox(T["dept"], dept_options)
                 
@@ -295,20 +298,22 @@ elif menu == T["menu_reg"]:
             with col2:
                 training_date = st.date_input(T["date"], value=min_date, min_value=min_date, max_value=max_date)
                 st.write(T["timeslot"])
-                c1, c2 = st.columns([1, 2])
-                with c1:
-                    period = st.radio(T["period"], [T["morning"], T["afternoon"]], horizontal=True)
-                with c2:
-                    exact_time = st.text_input(T["time_exact"], placeholder=T["placeholder_time"])
+                
+                period = st.radio(T["period"], [f'{T["morning"]} (09:30)', f'{T["afternoon"]} (13:30)'], horizontal=True)
                 
                 # Standardize storage to Vietnamese for morning/afternoon to maintain DB consistency
-                storage_period = "Sáng" if period == T["morning"] else "Chiều"
+                if period.startswith(T["morning"]):
+                    storage_period = "Sáng"
+                    exact_time = "09:30"
+                else:
+                    storage_period = "Chiều"
+                    exact_time = "13:30"
+                
                 final_timeslot = f"{storage_period} {exact_time}"
                 
             submitted = st.form_submit_button(T["submit"])
             if submitted:
-                if team_name and exact_time and final_dept:
-                    # We store the session name as selected (might be KR or VN)
+                if team_name and final_dept:
                     db.save_registration(final_dept, team_name, session_type, "", training_date, final_timeslot, attendees)
                     st.success(T["success"])
                 else:
@@ -364,51 +369,100 @@ elif menu == T["menu_trainers"]:
 
 # --- DOCUMENTS PAGE ---
 elif menu == T["menu_docs"]:
-    st.markdown(f'<div class="main-header"><h1>{T["docs_title"]}</h1></div>', unsafe_allow_html=True)
-    
-    docs = db.get_documents()
-    if docs.empty:
-        st.info(T["docs_no_data"])
-    else:
-        categories = [
-            "Tài liệu chung / 일반 자료", 
-            "Lý thuyết / 이론 자료", 
-            "Ví dụ thực hành / 실습 예제", 
-            "Bài tập các Bộ phận / 부서별 과제",
-            "Nhật ký đào tạo / 교육 일지"
-        ]
+    if "docs_authenticated" not in st.session_state:
+        st.session_state.docs_authenticated = False
+
+    if not st.session_state.docs_authenticated:
+        st.markdown(f'<div class="main-header"><h1>{T["docs_title"]}</h1></div>', unsafe_allow_html=True)
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.info("🔐 Vui lòng nhập mật khẩu để truy cập tài liệu đào tạo. / 교육 자료에 액세스하려면 비밀번호를 입력하십시오.")
         
-        for cat in categories:
-            st.markdown(f"#### 📂 {cat}")
-            cat_docs = docs[docs['Category'] == cat]
-            if not cat_docs.empty:
-                for idx, row in cat_docs.iterrows():
-                    with st.expander(f"📄 {row['Title']}"):
-                        st.write(f"**{T['doc_desc']}:** {row['Description']}")
-                        st.write(f"**{T['doc_date']}:** {row['UploadDate']}")
-                        st.button(f"📥 {T['doc_download']}", key=f"dl_{idx}_{row['FileName']}")
+        doc_pass = st.text_input("Mật khẩu tài liệu / 자료 비밀번호:", type="password", key="doc_password_input")
+        if st.button("Truy cập / 액세스", key="doc_auth_btn"):
+            if doc_pass == "tpm2026": # Mật khẩu mặc định
+                st.session_state.docs_authenticated = True
+                st.rerun()
             else:
-                st.markdown(f"<span style='color: gray; font-style: italic;'>{T['docs_no_data']}</span>", unsafe_allow_html=True)
-            st.markdown("---")
+                st.error("Mật khẩu không chính xác. / 비밀번호가 틀렸습니다.")
+        st.markdown('</div>', unsafe_allow_html=True)
+    else:
+        st.markdown(f'<div class="main-header"><h1>{T["docs_title"]}</h1></div>', unsafe_allow_html=True)
+        
+        # Logout button for docs
+        col_title, col_logout = st.columns([5, 1])
+        with col_logout:
+            if st.button("🔒 Khóa / 잠금", help="Đăng xuất khỏi phần tài liệu"):
+                st.session_state.docs_authenticated = False
+                st.rerun()
+
+        docs = db.get_documents()
+        if docs.empty:
+            st.info(T["docs_no_data"])
+        else:
+            categories = [
+                "Tài liệu chung / 일반 자료", 
+                "Lý thuyết / 이론 자료", 
+                "Ví dụ thực hành / 실습 예제", 
+                "Bài tập các Bộ phận / 부서별 과제",
+                "Nhật ký đào tạo / 교육 일지"
+            ]
+            
+            for cat in categories:
+                st.markdown(f"#### 📂 {cat}")
+                cat_docs = docs[docs['Category'] == cat]
+                if not cat_docs.empty:
+                    for idx, row in cat_docs.iterrows():
+                        with st.expander(f"📄 {row['Title']}"):
+                            st.write(f"**{T['doc_desc']}:** {row['Description']}")
+                            st.write(f"**{T['doc_date']}:** {row['UploadDate']}")
+                            
+                            # Use a direct link instead of st.button for reliable downloading on Cloud
+                            doc_url = row.get('FileURL', '#')
+                            st.markdown(f'''
+                                <a href="{doc_url}" target="_blank" style="
+                                    text-decoration: none;
+                                    background-color: #4b6cb7;
+                                    color: white;
+                                    padding: 8px 16px;
+                                    border-radius: 5px;
+                                    font-weight: bold;
+                                    display: inline-block;
+                                    margin-top: 10px;
+                                ">📥 {T['doc_download']}</a>
+                            ''', unsafe_allow_html=True)
+                else:
+                    st.markdown(f"<span style='color: gray; font-style: italic;'>{T['docs_no_data']}</span>", unsafe_allow_html=True)
+                st.markdown("---")
 
 # --- ADMIN PAGE ---
 elif menu == T["menu_admin"]:
     st.markdown(f"## {T['admin_title']}")
     
-    password = st.text_input(T["password"], type="password")
-    
-    if password == "admin123":
+    if "authenticated" not in st.session_state:
+        st.session_state.authenticated = False
+
+    if not st.session_state.authenticated:
+        password = st.text_input(T["password"], type="password")
+        if st.button("Đăng nhập / 로그인"):
+            if password == "admin123":
+                st.session_state.authenticated = True
+                st.rerun()
+            else:
+                st.error("Mật khẩu không chính xác." if lang == "Tiếng Việt" else "비밀번호가 틀렸습니다.")
+    else:
         st.success(T["auth_success"])
-        
+        if st.button("🚪 Đăng xuất / 로그아웃"):
+            st.session_state.authenticated = False
+            st.rerun()
+            
         tab_list, tab_manage, tab_docs, tab_trainers = st.tabs([T["tab_list"], T["tab_manage"], T["tab_docs"], "👨‍🏫 Quản lý Giảng viên" if lang == "Tiếng Việt" else "👨‍🏫 강사 관리"])
         
-        registrations = db.get_registrations()
+        registrations = db.get_registrations(use_cache=False)
         
         with tab_list:
             st.markdown(f"### {T['list_title']}")
             if not registrations.empty:
                 display_df = registrations[['Date', 'TimeSlot', 'Department', 'Team', 'Session', 'Attendees']].copy()
-                # Localize timeslot in display
                 display_df['TimeSlot'] = display_df['TimeSlot'].apply(lambda x: x.replace("Sáng", T["morning"]).replace("Chiều", T["afternoon"]))
                 
                 display_df.columns = [
@@ -430,7 +484,6 @@ elif menu == T["menu_admin"]:
             st.markdown(f"### {T['delete_title']}")
             if not registrations.empty:
                 for index, row in registrations.iterrows():
-                    display_time = row['TimeSlot'].replace("Sáng", T["morning"]).replace("Chiều", T["afternoon"])
                     with st.expander(f"📌 {row['Date']} - {row['Department']} ({row['Team']})"):
                         with st.form(key=f"edit_form_{index}"):
                             col1, col2 = st.columns(2)
@@ -475,7 +528,6 @@ elif menu == T["menu_admin"]:
                 st.write(T["doc_upload"])
                 doc_name = st.text_input(T["doc_name"])
                 doc_desc = st.text_area(T["doc_desc"])
-                # Updated categories based on user request
                 categories = [
                     "Tài liệu chung / 일반 자료", 
                     "Lý thuyết / 이론 자료", 
@@ -484,19 +536,19 @@ elif menu == T["menu_admin"]:
                     "Nhật ký đào tạo / 교육 일지"
                 ]
                 doc_cat = st.selectbox(T["doc_cat"], categories)
-                uploaded_file = st.file_uploader(T["doc_file"])
+                doc_url = st.text_input("Link tài liệu (Google Drive...) / 자료 링크 (구글 드라이브...)")
                 
                 submit_doc = st.form_submit_button(T["doc_upload"])
-                if submit_doc and uploaded_file and doc_name:
-                    db.save_document(doc_name, doc_desc, uploaded_file.name, doc_cat)
+                if submit_doc and doc_url and doc_name:
+                    db.save_document(doc_name, doc_desc, doc_url, doc_cat)
                     st.success(T["doc_success"])
             
             st.markdown("---")
-            docs = db.get_documents()
+            docs = db.get_documents(use_cache=False)
             if not docs.empty:
                 for index, row in docs.iterrows():
                     with st.expander(f"📄 {row['Title']} ({row['Category']})"):
-                        st.write(f"**File:** {row['FileName']}")
+                        st.write(f"**Link:** {row.get('FileURL', 'No Link')}")
                         if st.button(f"🗑️ {T['delete_btn']}", key=f"del_doc_{index}"):
                             if db.delete_document(index):
                                 st.rerun()
@@ -519,11 +571,13 @@ elif menu == T["menu_admin"]:
                     image_filename = ""
                     if t_image is not None:
                         image_filename = t_image.name
+                        if not os.path.exists("images"):
+                            os.makedirs("images")
                         with open(os.path.join("images", image_filename), "wb") as f:
                             f.write(t_image.getbuffer())
                     
                     db.save_trainer(t_name, t_role_vn, t_role_kr, t_team, t_desc, image_filename)
-                    st.success("Thêm thành công! / 성공적으로 추가되었습니다!")
+                    st.success("Thêm thành công! / thành công!")
                     
             st.markdown("---")
             dyn_trainers = db.get_trainers()
@@ -534,13 +588,8 @@ elif menu == T["menu_admin"]:
                         st.write(f"**Mô tả:** {row['Desc']}")
                         if row.get('ImageFile') and str(row.get('ImageFile')) != 'nan':
                             st.write(f"**Ảnh:** {row['ImageFile']}")
-                        if st.button("🗑️ Xóa / 삭제", key=f"del_trainer_{index}"):
+                        if st.button("🗑️ Xóa / xóa", key=f"del_trainer_{index}"):
                             if db.delete_trainer(index):
                                 st.rerun()
             else:
-                st.info("Chưa có giảng viên được thêm mới. / 추가된 강사가 없습니다.")
-                
-    elif password:
-        st.error("Mật khẩu không chính xác." if lang == "Tiếng Việt" else "비밀번호가 틀렸습니다.")
-    else:
-        st.info(T["password"] if lang == "Tiếng Việt" else "관리자 메뉴를 이용하려면 비밀번호를 입력하세요.")
+                st.info("Chưa có giảng viên được thêm mới. / không có.")
