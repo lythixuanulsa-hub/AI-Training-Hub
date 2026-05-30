@@ -261,8 +261,17 @@ if menu == T["menu_home"]:
     
     registrations = db.get_registrations()
     
-    # Month Selection
-    current_month = st.radio(T["select_month"], [5, 6, 7], horizontal=True, format_func=lambda x: f"{T['month_label']} {x}")
+    # Dynamic default month selection based on the current real-world month
+    today_month = datetime.now().month
+    default_idx = 0
+    if today_month == 6:
+        default_idx = 1
+    elif today_month == 7:
+        default_idx = 2
+    elif today_month > 7:
+        default_idx = 2  # Default to last month if after July
+        
+    current_month = st.radio(T["select_month"], [5, 6, 7], index=default_idx, horizontal=True, format_func=lambda x: f"{T['month_label']} {x}")
     year = 2026
     
     st.markdown(f"### {T['calendar_title']} {current_month} / {year}")
