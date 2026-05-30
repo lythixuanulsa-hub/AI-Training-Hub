@@ -36,8 +36,12 @@ def get_registrations(use_cache=False):
             for col in ['ActualAttendees', 'Note']:
                 if col not in df.columns:
                     df[col] = ""
-            df['ActualAttendees'] = df['ActualAttendees'].fillna("").astype(str)
-            df['Note'] = df['Note'].fillna("").astype(str)
+            
+            # Cast all text columns to str type to avoid any float64 dtype issues
+            text_cols = ['Timestamp', 'Department', 'Team', 'Session', 'Content', 'Date', 'TimeSlot', 'Status', 'ActualAttendees', 'Note']
+            for col in text_cols:
+                if col in df.columns:
+                    df[col] = df[col].fillna("").astype(str)
             return df
         except Exception as e:
             st.warning(f"Lỗi đọc file local training_data.csv: {e}. Đang tự động thử tải từ Google Sheets...")
@@ -53,8 +57,12 @@ def get_registrations(use_cache=False):
             for col in ['ActualAttendees', 'Note']:
                 if col not in df.columns:
                     df[col] = ""
-            df['ActualAttendees'] = df['ActualAttendees'].fillna("").astype(str)
-            df['Note'] = df['Note'].fillna("").astype(str)
+            
+            # Cast all text columns to str type to avoid any float64 dtype issues
+            text_cols = ['Timestamp', 'Department', 'Team', 'Session', 'Content', 'Date', 'TimeSlot', 'Status', 'ActualAttendees', 'Note']
+            for col in text_cols:
+                if col in df.columns:
+                    df[col] = df[col].fillna("").astype(str)
             # Cache it locally immediately
             df.to_csv(REG_FILE, index=False)
             return df
@@ -68,8 +76,10 @@ def get_registrations(use_cache=False):
 
 def save_registration(dept, team, session, content, date, timeslot, attendees):
     df = get_registrations(use_cache=False)
-    df['ActualAttendees'] = df['ActualAttendees'].fillna("").astype(str)
-    df['Note'] = df['Note'].fillna("").astype(str)
+    text_cols = ['Timestamp', 'Department', 'Team', 'Session', 'Content', 'Date', 'TimeSlot', 'Status', 'ActualAttendees', 'Note']
+    for col in text_cols:
+        if col in df.columns:
+            df[col] = df[col].fillna("").astype(str)
     new_entry = {
         'Timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         'Department': dept, 'Team': team, 'Session': session, 'Content': content,
@@ -93,20 +103,27 @@ def save_registration(dept, team, session, content, date, timeslot, attendees):
 def update_registration(index, dept, team, session, content, date, timeslot, attendees, status="Pending", actual_attendees="", note=""):
     df = get_registrations(use_cache=False)
     try:
-        # Cast columns to string type to avoid float64 dtype issues entirely
-        df['ActualAttendees'] = df['ActualAttendees'].fillna("").astype(str)
-        df['Note'] = df['Note'].fillna("").astype(str)
+        # Cast all text columns to string type to avoid float64 dtype issues entirely
+        text_cols = ['Timestamp', 'Department', 'Team', 'Session', 'Content', 'Date', 'TimeSlot', 'Status', 'ActualAttendees', 'Note']
+        for col in text_cols:
+            if col in df.columns:
+                df[col] = df[col].fillna("").astype(str)
+                
+        def safe_str(val):
+            if pd.isna(val) or str(val).strip().lower() == 'nan':
+                return ""
+            return str(val).strip()
         
-        df.at[index, 'Department'] = str(dept)
-        df.at[index, 'Team'] = str(team)
-        df.at[index, 'Session'] = str(session)
-        df.at[index, 'Content'] = str(content)
-        df.at[index, 'Date'] = date.strftime("%Y-%m-%d") if hasattr(date, 'strftime') else str(date)
-        df.at[index, 'TimeSlot'] = str(timeslot)
+        df.at[index, 'Department'] = safe_str(dept)
+        df.at[index, 'Team'] = safe_str(team)
+        df.at[index, 'Session'] = safe_str(session)
+        df.at[index, 'Content'] = safe_str(content)
+        df.at[index, 'Date'] = date.strftime("%Y-%m-%d") if hasattr(date, 'strftime') else safe_str(date)
+        df.at[index, 'TimeSlot'] = safe_str(timeslot)
         df.at[index, 'Attendees'] = int(attendees)
-        df.at[index, 'Status'] = str(status)
-        df.at[index, 'ActualAttendees'] = str(actual_attendees) if pd.notna(actual_attendees) else ""
-        df.at[index, 'Note'] = str(note) if pd.notna(note) else ""
+        df.at[index, 'Status'] = safe_str(status)
+        df.at[index, 'ActualAttendees'] = safe_str(actual_attendees)
+        df.at[index, 'Note'] = safe_str(note)
         
         # Save locally first
         df.to_csv(REG_FILE, index=False)
