@@ -1,5 +1,5 @@
 Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualAttendees,Note
-2026-04-29 02:48:55,Sản xuất,Sản xuất ACT,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-07,Chiều 13:30,6.0,Completed,6,
+2026-04-29 02:48:55,Sản xuất,Sản xuất ACT,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-07,Chiều 13:30,6.0,Completed,6.0,
 2026-04-29 02:49:23,Sản xuất,Sản xuất ACT,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-13,Chiều 13:30,6.0,Completed,5.0,
 2026-04-29 02:50:01,Sản xuất,Sản xuất ACT,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-14,Chiều 13:30,6.0,Completed,5.0,
 2026-04-29 02:50:19,Sản xuất,Sản xuất ACT,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-17,Chiều 13:30,6.0,Pending,,
@@ -29,10 +29,10 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-05-03 02:45:58,Kỹ thuật,CAMERA MODULE,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-06,Chiều 13:30,9.0,Pending,,
 2026-05-03 02:49:23,Kỹ thuật,CAMERA MODULE,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-20,Chiều 13:30,9.0,Pending,,
 2026-05-06 09:32:54,Kỹ thuật,CAMERA MODULE,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-27,Chiều 13:30,9.0,Pending,,
-2026-05-28 01:42:58,Sản xuất,Sản xuất Module,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-02,Chiều 13:30,6.0,Pending,,
-2026-05-28 01:44:01,Sản xuất,Sản xuất Module,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-09,Chiều 13:30,6.0,Pending,,
-2026-05-28 01:44:56,Sản xuất,Sản xuất Module,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-23,Chiều 13:30,6.0,Pending,,
-2026-05-28 01:45:22,Sản xuất,Sản xuất Module,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-30,Chiều 13:30,6.0,Pending,,
+2026-05-28 01:42:58,Sản xuất,Sản xuất Module,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-09,Chiều 13:30,6.0,Pending,,
+2026-05-28 01:44:01,Sản xuất,Sản xuất Module,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-23,Chiều 13:30,6.0,Pending,,
+2026-05-28 01:44:56,Sản xuất,Sản xuất Module,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-30,Chiều 13:30,6.0,Pending,,
+2026-05-28 01:45:22,Sản xuất,Sản xuất Module,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-07-07,Chiều 13:30,6.0,Pending,,Phải lùi lịch do buổi 1 bận họp đột suất chưa tham gia
 2026-05-29 09:22:21,GA-HR-ACC,GA-HR-ACC,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-25,Chiều 13:30,8.0,Completed,8.0,
 2026-05-29 09:26:31,GA-HR-ACC,GA-HR-ACC,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-10,Chiều 13:30,8.0,Pending,,
 2026-05-29 09:26:49,GA-HR-ACC,GA-HR-ACC,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-12,Chiều 13:30,8.0,Pending,,
