@@ -1,5 +1,5 @@
 Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualAttendees,Note
-2026-04-29 02:48:55,Sản xuất,Sản xuất ACT,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-07,Chiều 13:30,6.0,Pending,,
+2026-04-29 02:48:55,Sản xuất,Sản xuất ACT,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-07,Chiều 13:30,6.0,Completed,6,
 2026-04-29 02:49:23,Sản xuất,Sản xuất ACT,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-13,Chiều 13:30,6.0,Completed,5.0,
 2026-04-29 02:50:01,Sản xuất,Sản xuất ACT,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-14,Chiều 13:30,6.0,Completed,5.0,
 2026-04-29 02:50:19,Sản xuất,Sản xuất ACT,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-17,Chiều 13:30,6.0,Pending,,
@@ -13,18 +13,18 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-04-29 03:32:28,Kinh doanh,Thu mua+ Kho,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-21,Sáng 9:30,9.0,Completed,3.0,
 2026-04-29 03:33:03,Kinh doanh,Kinh doanh+ KHSX,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-05,Sáng 9:30,10.0,Pending,,
 2026-04-29 03:34:18,Kinh doanh,Thu mua+ Kho,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-28,Sáng 9:30,9.0,Completed,3.0,Hoàn thành
-2026-04-29 06:47:40,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-04,Chiều 13:30,6.0,Pending,,
+2026-04-29 06:47:40,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-04,Chiều 13:30,6.0,Completed,5.0,"Vắng 1, nghỉ vợ sinh"
 2026-04-29 06:48:26,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-11,Chiều 13:30,6.0,Pending,,
 2026-04-29 06:49:17,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-18,Chiều 13:30,6.0,Pending,,
 2026-04-29 06:50:10,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-25,Chiều 13:30,6.0,Pending,,
 2026-04-29 07:09:33,QC,QC,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-20,Sáng 09:30,12.0,Completed,11.0,
 2026-04-29 07:10:48,QC,QC,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-22,Sáng 09:30,12.0,Completed,11.0,
 2026-04-29 07:10:58,QC,QC,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-27,Sáng 09:30,12.0,Completed,10.0,
-2026-04-29 07:17:52,QC,QC,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-03,Sáng 09:30,12.0,Pending,,
+2026-04-29 07:17:52,QC,QC,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-12,Sáng 09:30,12.0,Pending,,
 2026-04-29 07:26:25,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-09,Chiều 13:30,9.0,Completed,7.0,
 2026-04-29 07:27:05,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-16,Chiều 13:30,9.0,Completed,,
 2026-04-29 07:27:32,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-23,Chiều 13:30,9.0,Completed,6.0,
-2026-04-29 07:27:52,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-30,Chiều 13:30,9.0,Pending,,
+2026-04-29 07:27:52,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-30,Chiều 13:30,9.0,Completed,7.0,Hoàn thành
 2026-05-03 02:42:10,Kỹ thuật,CAMERA MODULE,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-13,Chiều 13:30,9.0,Pending,,
 2026-05-03 02:45:58,Kỹ thuật,CAMERA MODULE,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-06,Chiều 13:30,9.0,Pending,,
 2026-05-03 02:49:23,Kỹ thuật,CAMERA MODULE,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-20,Chiều 13:30,9.0,Pending,,
