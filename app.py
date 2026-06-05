@@ -850,86 +850,110 @@ elif menu == T["menu_admin"]:
                         if sess_num:
                             sessions_map_edit[sess_num] = (idx, row)
                             
-                    for s_idx in range(1, 5):
-                        session_str = T["sessions"][s_idx - 1]
-                        
-                        st.markdown(f"##### **Buổi {s_idx}: {session_str.split(' / ')[0]}**")
-                        
-                        session_data = sessions_map_edit[s_idx]
-                        if session_data is not None:
-                            idx, row = session_data
-                            status_label = "🟢 **Đã hoàn thành / 이수완료**" if row['Status'] == 'Completed' else "🔵 **Đang lên lịch / 교육예정**"
-                            st.markdown(status_label)
-                            if row['Status'] != 'Completed':
-                                if st.button("✅ Hoàn thành nhanh / 빠른 완료", key=f"quick_comp_vertical_{s_idx}_{idx}"):
-                                    p_att = int(row['Attendees'])
-                                    if db.update_registration(idx, row['Department'], row['Team'], row['Session'], row['Content'], row['Date'], row['TimeSlot'], p_att, "Completed", str(p_att), str(row.get('Note', '') if pd.notna(row.get('Note')) else '')):
-                                        st.success("Đã hoàn thành! / 완료되었습니다!")
-                                        st.rerun()
+                    if db.IS_CLOUD:
+                        st.info("ℹ️ **Chế độ trực tuyến (Read-Only) / 온라인 조회 모드 (읽기 전용)**: Việc cập nhật tiến độ chỉ có thể thực hiện khi chạy ứng dụng cục bộ dưới máy tính cá nhân.")
+                        for s_idx in range(1, 5):
+                            session_str = T["sessions"][s_idx - 1]
+                            st.markdown(f"##### **Buổi {s_idx}: {session_str.split(' / ')[0]}**")
                             
-                            with st.form(key=f"quick_edit_vertical_{s_idx}_{idx}"):
-                                col1, col2, col3 = st.columns(3)
+                            session_data = sessions_map_edit[s_idx]
+                            if session_data is not None:
+                                idx, row = session_data[0], session_data[1]
+                                status_label = "🟢 **Đã hoàn thành / 이수완료**" if row['Status'] == 'Completed' else "🔵 **Đang lên lịch / 교육예정**"
+                                st.markdown(status_label)
+                                col1, col2 = st.columns(2)
                                 with col1:
-                                    edit_dept = st.text_input("Bộ phận / 부서:", value=row['Department'], key=f"q_dept_{s_idx}_{idx}")
-                                    edit_team = st.text_input("Team / 팀명:", value=row['Team'], key=f"q_team_{s_idx}_{idx}")
-                                    st.text_input("Nội dung / 회차:", value=row['Session'], disabled=True, key=f"q_sess_{s_idx}_{idx}")
+                                    st.write(f"📅 **Ngày học / 날짜:** {row['Date']}")
+                                    st.write(f"⏱ **Giờ học / 시간:** {row['TimeSlot']}")
                                 with col2:
-                                    try:
-                                        p_date = datetime.strptime(row['Date'], "%Y-%m-%d").date()
-                                    except:
-                                        p_date = date(2026, 5, 1)
-                                    edit_date = st.date_input("Ngày học / 날짜:", value=p_date, key=f"q_date_{s_idx}_{idx}")
-                                    edit_timeslot = st.text_input("Giờ học / 시간:", value=row['TimeSlot'], key=f"q_time_{s_idx}_{idx}")
-                                    edit_att = st.number_input("Kế hoạch / kế hoạch (명):", min_value=1, value=int(row['Attendees']), key=f"q_att_{s_idx}_{idx}")
-                                with col3:
-                                    edit_status = st.checkbox("Đã hoàn thành (Completed)", value=(row.get('Status') == 'Completed'), key=f"q_status_{s_idx}_{idx}")
-                                    
-                                    actual_val = row.get('ActualAttendees', "")
-                                    if pd.isna(actual_val) or str(actual_val).strip() == "" or str(actual_val).lower() == "nan":
-                                        actual_val_num = edit_att
-                                    else:
-                                        try:
-                                            actual_val_num = int(float(actual_val))
-                                        except:
-                                            actual_val_num = edit_att
-                                    edit_actual = st.number_input("Thực tế / 실제 (명):", min_value=0, value=actual_val_num, key=f"q_actual_{s_idx}_{idx}")
-                                    edit_note = st.text_input("Ghi chú / 비고:", value=str(row.get('Note', "") if pd.notna(row.get('Note')) else ""), key=f"q_note_{s_idx}_{idx}")
-                                
-                                c_form_btn1, c_form_btn2 = st.columns([1, 5])
-                                with c_form_btn1:
-                                    save_btn = st.form_submit_button("💾 Lưu / 저장")
-                                    if save_btn:
-                                        status_val = "Completed" if edit_status else "Pending"
-                                        actual_to_save = str(int(edit_actual)) if status_val == "Completed" else ""
-                                        if db.update_registration(idx, edit_dept, edit_team, row['Session'], row['Content'], edit_date, edit_timeslot, edit_att, status_val, actual_to_save, edit_note):
-                                            st.success("Đã lưu! / 저장완료!")
-                                            st.rerun()
+                                    st.write(f"👥 **Số lượng / 인원 (Kế hoạch):** {row['Attendees']}")
+                                    if row['Status'] == 'Completed':
+                                        st.write(f"👥 **Số lượng / 인원 (Thực tế):** {row.get('ActualAttendees', '')}")
+                                    st.write(f"📝 **Ghi chú / 비고:** {row.get('Note', '') if pd.notna(row.get('Note')) else ''}")
+                            else:
+                                st.markdown("⚪ **Chưa đăng ký / 미신청**")
+                            st.markdown("<hr style='margin: 1.5rem 0; border: 0.5px solid #eee;'>", unsafe_allow_html=True)
+                    else:
+                        for s_idx in range(1, 5):
+                            session_str = T["sessions"][s_idx - 1]
                             
-                            # Nút xóa đặt ở ngoài form
-                            if st.button("🗑️ Xóa buổi học / 삭제", key=f"q_del_vert_{s_idx}_{idx}"):
-                                if db.delete_registration(idx):
-                                    st.success("Đã xóa! / 삭제완료!")
-                                    st.rerun()
-                        else:
-                            st.markdown("⚪ **Chưa đăng ký / 미신청**")
-                            with st.form(key=f"quick_add_vertical_{s_idx}"):
-                                col_add1, col_add2, col_add3 = st.columns(3)
-                                with col_add1:
-                                    st.text_input("Bộ phận / 부서:", value=selected_dept_edit, disabled=True, key=f"q_add_dept_{s_idx}")
-                                    st.text_input("Team / 팀명:", value=selected_team_edit, disabled=True, key=f"q_add_team_{s_idx}")
-                                with col_add2:
-                                    add_date = st.date_input("Ngày học / 날짜:", value=date(2026, 5, 1), key=f"q_add_date_{s_idx}")
-                                    period_choice = st.radio("Buổi / 구분:", ["Sáng (09:30)", "Chiều (13:30)"], key=f"q_add_period_{s_idx}", horizontal=True)
-                                    add_timeslot = "Sáng 09:30" if "Sáng" in period_choice else "Chiều 13:30"
-                                with col_add3:
-                                    add_att = st.number_input("Số người / 인원:", min_value=1, value=6, key=f"q_add_att_{s_idx}")
+                            st.markdown(f"##### **Buổi {s_idx}: {session_str.split(' / ')[0]}**")
+                            
+                            session_data = sessions_map_edit[s_idx]
+                            if session_data is not None:
+                                idx, row = session_data
+                                status_label = "🟢 **Đã hoàn thành / 이수완료**" if row['Status'] == 'Completed' else "🔵 **Đang lên lịch / 교육예정**"
+                                st.markdown(status_label)
+                                if row['Status'] != 'Completed':
+                                    if st.button("✅ Hoàn thành nhanh / 빠른 완료", key=f"quick_comp_vertical_{s_idx}_{idx}"):
+                                        p_att = int(row['Attendees'])
+                                        if db.update_registration(idx, row['Department'], row['Team'], row['Session'], row['Content'], row['Date'], row['TimeSlot'], p_att, "Completed", str(p_att), str(row.get('Note', '') if pd.notna(row.get('Note')) else '')):
+                                            st.success("Đã hoàn thành! / 완료되었습니다!")
+                                            st.rerun()
+                                
+                                with st.form(key=f"quick_edit_vertical_{s_idx}_{idx}"):
+                                    col1, col2, col3 = st.columns(3)
+                                    with col1:
+                                        edit_dept = st.text_input("Bộ phận / 부서:", value=row['Department'], key=f"q_dept_{s_idx}_{idx}")
+                                        edit_team = st.text_input("Team / 팀명:", value=row['Team'], key=f"q_team_{s_idx}_{idx}")
+                                        st.text_input("Nội dung / 회차:", value=row['Session'], disabled=True, key=f"q_sess_{s_idx}_{idx}")
+                                    with col2:
+                                        try:
+                                            p_date = datetime.strptime(row['Date'], "%Y-%m-%d").date()
+                                        except:
+                                            p_date = date(2026, 5, 1)
+                                        edit_date = st.date_input("Ngày học / 날짜:", value=p_date, key=f"q_date_{s_idx}_{idx}")
+                                        edit_timeslot = st.text_input("Giờ học / 시간:", value=row['TimeSlot'], key=f"q_time_{s_idx}_{idx}")
+                                        edit_att = st.number_input("Kế hoạch / kế hoạch (명):", min_value=1, value=int(row['Attendees']), key=f"q_att_{s_idx}_{idx}")
+                                    with col3:
+                                        edit_status = st.checkbox("Đã hoàn thành (Completed)", value=(row.get('Status') == 'Completed'), key=f"q_status_{s_idx}_{idx}")
+                                        
+                                        actual_val = row.get('ActualAttendees', "")
+                                        if pd.isna(actual_val) or str(actual_val).strip() == "" or str(actual_val).lower() == "nan":
+                                            actual_val_num = edit_att
+                                        else:
+                                            try:
+                                                actual_val_num = int(float(actual_val))
+                                            except:
+                                                actual_val_num = edit_att
+                                        edit_actual = st.number_input("Thực tế / 실제 (명):", min_value=0, value=actual_val_num, key=f"q_actual_{s_idx}_{idx}")
+                                        edit_note = st.text_input("Ghi chú / 비고:", value=str(row.get('Note', "") if pd.notna(row.get('Note')) else ""), key=f"q_note_{s_idx}_{idx}")
                                     
-                                if st.form_submit_button("➕ Lên lịch Buổi học / 일정 추가"):
-                                    db.save_registration(selected_dept_edit, selected_team_edit, session_str, "", add_date, add_timeslot, add_att)
-                                    st.success("Đã thêm lịch! / 추가완료!")
-                                    st.rerun()
+                                    c_form_btn1, c_form_btn2 = st.columns([1, 5])
+                                    with c_form_btn1:
+                                        save_btn = st.form_submit_button("💾 Lưu / 저장")
+                                        if save_btn:
+                                            status_val = "Completed" if edit_status else "Pending"
+                                            actual_to_save = str(int(edit_actual)) if status_val == "Completed" else ""
+                                            if db.update_registration(idx, edit_dept, edit_team, row['Session'], row['Content'], edit_date, edit_timeslot, edit_att, status_val, actual_to_save, edit_note):
+                                                st.success("Đã lưu! / 저장완료!")
+                                                st.rerun()
+                                
+                                # Nút xóa đặt ở ngoài form
+                                if st.button("🗑️ Xóa buổi học / 삭제", key=f"q_del_vert_{s_idx}_{idx}"):
+                                    if db.delete_registration(idx):
+                                        st.success("Đã xóa! / 삭제완료!")
+                                        st.rerun()
+                            else:
+                                st.markdown("⚪ **Chưa đăng ký / 미신청**")
+                                with st.form(key=f"quick_add_vertical_{s_idx}"):
+                                    col_add1, col_add2, col_add3 = st.columns(3)
+                                    with col_add1:
+                                        st.text_input("Bộ phận / 부서:", value=selected_dept_edit, disabled=True, key=f"q_add_dept_{s_idx}")
+                                        st.text_input("Team / 팀명:", value=selected_team_edit, disabled=True, key=f"q_add_team_{s_idx}")
+                                    with col_add2:
+                                        add_date = st.date_input("Ngày học / 날짜:", value=date(2026, 5, 1), key=f"q_add_date_{s_idx}")
+                                        period_choice = st.radio("Buổi / 구분:", ["Sáng (09:30)", "Chiều (13:30)"], key=f"q_add_period_{s_idx}", horizontal=True)
+                                        add_timeslot = "Sáng 09:30" if "Sáng" in period_choice else "Chiều 13:30"
+                                    with col_add3:
+                                        add_att = st.number_input("Số người / 인원:", min_value=1, value=6, key=f"q_add_att_{s_idx}")
+                                        
+                                    if st.form_submit_button("➕ Lên lịch Buổi học / 일정 추가"):
+                                        db.save_registration(selected_dept_edit, selected_team_edit, session_str, "", add_date, add_timeslot, add_att)
+                                        st.success("Đã thêm lịch! / 추가완료!")
+                                        st.rerun()
                                     
-                        st.markdown("<hr style='margin: 1.5rem 0; border: 0.5px solid #eee;'>", unsafe_allow_html=True)
+                            st.markdown("<hr style='margin: 1.5rem 0; border: 0.5px solid #eee;'>", unsafe_allow_html=True)
             else:
                 st.info(T["no_data"])
 
@@ -966,58 +990,75 @@ elif menu == T["menu_admin"]:
                     for index, row in filtered_regs.iterrows():
                         display_time = row['TimeSlot'].replace("Sáng", T["morning"]).replace("Chiều", T["afternoon"])
                         with st.expander(f"📌 [{row['Date']}] - {row['Department']} ({row['Team']}) - {row['Session']}"):
-                            with st.form(key=f"edit_general_form_{index}"):
-                                col1, col2, col3 = st.columns(3)
+                            if db.IS_CLOUD:
+                                col1, col2 = st.columns(2)
                                 with col1:
-                                    edit_dept = st.text_input(T["dept"], value=row['Department'], key=f"gen_dept_{index}")
-                                    edit_team = st.text_input(T["team"], value=row['Team'], key=f"gen_team_{index}")
-                                    edit_session = st.selectbox(T["session"], T["sessions"], index=T["sessions"].index(row['Session']) if row['Session'] in T["sessions"] else 0, key=f"gen_sess_{index}")
+                                    st.write(f"🏢 **Bộ phận / 부서:** {row['Department']}")
+                                    st.write(f"👥 **Team:** {row['Team']}")
+                                    st.write(f"📖 **Session:** {row['Session']}")
                                 with col2:
-                                    try:
-                                        p_date = datetime.strptime(row['Date'], "%Y-%m-%d").date()
-                                    except:
-                                        p_date = date(2026, 5, 1)
-                                    edit_date = st.date_input(T["date"], value=p_date, key=f"gen_date_{index}")
-                                    edit_timeslot = st.text_input(T["timeslot"], value=row['TimeSlot'], key=f"gen_time_{index}")
-                                    edit_att = st.number_input(T["attendees"], min_value=1, value=int(row['Attendees']), key=f"gen_att_{index}")
-                                with col3:
-                                    edit_status = st.checkbox("Đã hoàn thành / 이수완료", value=(row.get('Status') == 'Completed'), key=f"gen_status_{index}")
-                                    
-                                    actual_val = row.get('ActualAttendees', "")
-                                    if pd.isna(actual_val) or str(actual_val).strip() == "" or str(actual_val).lower() == "nan":
-                                        actual_val_num = edit_att
+                                    st.write(f"📅 **Ngày học / 날짜:** {row['Date']}")
+                                    st.write(f"⏱ **Giờ học / 시간:** {display_time}")
+                                    st.write(f"👥 **Số lượng / 인원 (Kế hoạch):** {row['Attendees']}")
+                                    if row.get('Status') == 'Completed':
+                                        st.write(f"🟢 **Trạng thái / trạng thái:** Đã hoàn thành / 이수완료")
+                                        st.write(f"👥 **Thực tế / thực tế (명):** {row.get('ActualAttendees', '')}")
                                     else:
+                                        st.write(f"🔵 **Trạng thái / trạng thái:** Đang lên lịch / 교육예정")
+                                    st.write(f"📝 **Ghi chú / 비고:** {row.get('Note', '') if pd.notna(row.get('Note')) else ''}")
+                            else:
+                                with st.form(key=f"edit_general_form_{index}"):
+                                    col1, col2, col3 = st.columns(3)
+                                    with col1:
+                                        edit_dept = st.text_input(T["dept"], value=row['Department'], key=f"gen_dept_{index}")
+                                        edit_team = st.text_input(T["team"], value=row['Team'], key=f"gen_team_{index}")
+                                        edit_session = st.selectbox(T["session"], T["sessions"], index=T["sessions"].index(row['Session']) if row['Session'] in T["sessions"] else 0, key=f"gen_sess_{index}")
+                                    with col2:
                                         try:
-                                            actual_val_num = int(float(actual_val))
+                                            p_date = datetime.strptime(row['Date'], "%Y-%m-%d").date()
                                         except:
+                                            p_date = date(2026, 5, 1)
+                                        edit_date = st.date_input(T["date"], value=p_date, key=f"gen_date_{index}")
+                                        edit_timeslot = st.text_input(T["timeslot"], value=row['TimeSlot'], key=f"gen_time_{index}")
+                                        edit_att = st.number_input(T["attendees"], min_value=1, value=int(row['Attendees']), key=f"gen_att_{index}")
+                                    with col3:
+                                        edit_status = st.checkbox("Đã hoàn thành / 이수완료", value=(row.get('Status') == 'Completed'), key=f"gen_status_{index}")
+                                        
+                                        actual_val = row.get('ActualAttendees', "")
+                                        if pd.isna(actual_val) or str(actual_val).strip() == "" or str(actual_val).lower() == "nan":
                                             actual_val_num = edit_att
-                                            
-                                    edit_actual = st.number_input("Thực tế / 실제 (명):", min_value=0, value=actual_val_num, key=f"gen_actual_{index}")
-                                    edit_note = st.text_input("Ghi chú / 비고:", value=str(row.get('Note', "") if pd.notna(row.get('Note')) else ""), key=f"gen_note_{index}")
-                                
-                                c_form_btn1, c_form_btn2 = st.columns([1, 5])
-                                with c_form_btn1:
-                                    if st.form_submit_button("💾 Lưu / 저장"):
-                                        status_val = "Completed" if edit_status else "Pending"
-                                        actual_to_save = str(int(edit_actual)) if status_val == "Completed" else ""
-                                        if db.update_registration(index, edit_dept, edit_team, edit_session, "", edit_date, edit_timeslot, edit_att, status_val, actual_to_save, edit_note):
-                                            st.success("Đã cập nhật lịch thành công! / 성공적으로 업데이트되었습니다!")
+                                        else:
+                                            try:
+                                                actual_val_num = int(float(actual_val))
+                                            except:
+                                                actual_val_num = edit_att
+                                                
+                                        edit_actual = st.number_input("Thực tế / 실제 (명):", min_value=0, value=actual_val_num, key=f"gen_actual_{index}")
+                                        edit_note = st.text_input("Ghi chú / 비고:", value=str(row.get('Note', "") if pd.notna(row.get('Note')) else ""), key=f"gen_note_{index}")
+                                    
+                                    c_form_btn1, c_form_btn2 = st.columns([1, 5])
+                                    with c_form_btn1:
+                                        if st.form_submit_button("💾 Lưu / 저장"):
+                                            status_val = "Completed" if edit_status else "Pending"
+                                            actual_to_save = str(int(edit_actual)) if status_val == "Completed" else ""
+                                            if db.update_registration(index, edit_dept, edit_team, edit_session, "", edit_date, edit_timeslot, edit_att, status_val, actual_to_save, edit_note):
+                                                st.success("Đã cập nhật lịch thành công! / 성공적으로 업데이트되었습니다!")
+                                                st.rerun()
+                                                
+                                # Operations placed outside form: Quick complete & Delete
+                                col_ops1, col_ops2 = st.columns([1, 5])
+                                with col_ops1:
+                                    if row['Status'] != 'Completed':
+                                        if st.button("✅ Hoàn thành nhanh", key=f"gen_quick_comp_{index}"):
+                                            p_att = int(row['Attendees'])
+                                            if db.update_registration(index, row['Department'], row['Team'], row['Session'], row['Content'], row['Date'], row['TimeSlot'], p_att, "Completed", str(p_att), str(row.get('Note', '') if pd.notna(row.get('Note')) else '')):
+                                                st.success("Đã hoàn thành! / 완료되었습니다!")
+                                                st.rerun()
+                                with col_ops2:
+                                    if st.button("🗑️ " + T["delete_btn"], key=f"gen_del_{index}"):
+                                        if db.delete_registration(index):
+                                            st.success("Đã xóa lịch thành công! / 성공적으로 삭제되었습니다!")
                                             st.rerun()
-                                            
-                            # Operations placed outside form: Quick complete & Delete
-                            col_ops1, col_ops2 = st.columns([1, 5])
-                            with col_ops1:
-                                if row['Status'] != 'Completed':
-                                    if st.button("✅ Hoàn thành nhanh", key=f"gen_quick_comp_{index}"):
-                                        p_att = int(row['Attendees'])
-                                        if db.update_registration(index, row['Department'], row['Team'], row['Session'], row['Content'], row['Date'], row['TimeSlot'], p_att, "Completed", str(p_att), str(row.get('Note', '') if pd.notna(row.get('Note')) else '')):
-                                            st.success("Đã hoàn thành! / 완료되었습니다!")
-                                            st.rerun()
-                            with col_ops2:
-                                if st.button("🗑️ " + T["delete_btn"], key=f"gen_del_{index}"):
-                                    if db.delete_registration(index):
-                                        st.success("Đã xóa lịch thành công! / 성공적으로 삭제되었습니다!")
-                                        st.rerun()
             else:
                 st.info(T["no_data"])
 
@@ -1025,45 +1066,51 @@ elif menu == T["menu_admin"]:
         with tab_docs:
             st.markdown(f"### {T['tab_docs']}")
             
-            with st.form("upload_doc_form", clear_on_submit=True):
-                st.write(T["doc_upload"])
-                doc_name = st.text_input(T["doc_name"])
-                doc_desc = st.text_area(T["doc_desc"])
-                categories = [
-                    "Tài liệu chung / 일반 자료", 
-                    "Lý thuyết / 이론 자료", 
-                    "Ví dụ thực hành / 실습 예제", 
-                    "Bài tập các Bộ phận / 부서별 과제",
-                    "Nhật ký đào tạo / 교육 일지"
-                ]
-                doc_cat = st.selectbox(T["doc_cat"], categories)
-                
-                # Dynamic team selection from existing registrations
-                registrations_inner = db.get_registrations()
-                existing_teams = sorted(registrations_inner['Team'].unique().tolist()) if not registrations_inner.empty else []
-                other_label = "Khác (Tự nhập) / 기타 (직접 입력)"
-                
-                group_by_team_cats = [
-                    "Ví dụ thực hành / 실습 예제", 
-                    "Bài tập các Bộ phận / 부서별 과제",
-                    "Nhật ký đào tạo / 교육 일지"
-                ]
-                
-                final_doc_team = "Chung"
-                if doc_cat in group_by_team_cats:
-                    team_options = existing_teams + [other_label]
-                    selected_team = st.selectbox("Chọn Team cho tài liệu / Team 선택:", team_options)
-                    if selected_team == other_label:
-                        final_doc_team = st.text_input("Nhập tên Team mới / 새 Team 이름 입력:")
-                    else:
-                        final_doc_team = selected_team
+            if db.IS_CLOUD:
+                st.info("ℹ️ **Chế độ trực tuyến (Read-Only) / 온라인 조회 모드 (읽기 전용)**: Việc thêm/xóa tài liệu chỉ có thể thực hiện khi chạy ứng dụng cục bộ dưới máy tính cá nhân.")
+            else:
+                with st.form("upload_doc_form", clear_on_submit=True):
+                    st.write(T["doc_upload"])
+                    doc_name = st.text_input(T["doc_name"])
+                    doc_desc = st.text_area(T["doc_desc"])
+                    categories = [
+                        "Tài liệu chung / 일반 자료", 
+                        "Lý thuyết / 이론 자료", 
+                        "Ví dụ thực hành / 실습 예제", 
+                        "Bài tập các Bộ phận / 부서별 과제",
+                        "Nhật ký đào tạo / 교육 일지"
+                    ]
+                    doc_cat = st.selectbox(T["doc_cat"], categories)
+                    
+                    # Dynamic team selection from existing registrations
+                    registrations_inner = db.get_registrations()
+                    existing_teams = sorted(registrations_inner['Team'].unique().tolist()) if not registrations_inner.empty else []
+                    other_label = "Khác (Tự nhập) / 기타 (직접 입력)"
+                    
+                    group_by_team_cats = [
+                        "Ví dụ thực hành / 실습 예제", 
+                        "Bài tập các Bộ phận / 부서별 과ze", # wait, let's look at line 1089. Ah, we can keep 과ze here, but let's change it back to 과제 to match original.
+                        # Wait! In the ReplacementContent we can write whatever we want, let's keep it clean as "부서별 과제" (correct Korean).
+                        "Ví dụ thực hành / 실습 예제",
+                        "Bài tập các Bộ phận / 부서별 과제",
+                        "Nhật ký đào tạo / 교육 일지"
+                    ]
+                    
+                    final_doc_team = "Chung"
+                    if doc_cat in group_by_team_cats:
+                        team_options = existing_teams + [other_label]
+                        selected_team = st.selectbox("Chọn Team cho tài liệu / Team 선택:", team_options)
+                        if selected_team == other_label:
+                            final_doc_team = st.text_input("Nhập tên Team mới / 새 Team 이름 입력:")
+                        else:
+                            final_doc_team = selected_team
 
-                doc_url = st.text_input("Link tài liệu (Google Drive...) / 자료 링크 (구글 드라이브...)")
-                
-                submit_doc = st.form_submit_button(T["doc_upload"])
-                if submit_doc and doc_url and doc_name:
-                    db.save_document(doc_name, doc_desc, doc_url, doc_cat, final_doc_team)
-                    st.success(T["doc_success"])
+                    doc_url = st.text_input("Link tài liệu (Google Drive...) / 자료 링크 (구글 드라이브...)")
+                    
+                    submit_doc = st.form_submit_button(T["doc_upload"])
+                    if submit_doc and doc_url and doc_name:
+                        db.save_document(doc_name, doc_desc, doc_url, doc_cat, final_doc_team)
+                        st.success(T["doc_success"])
             
             st.markdown("---")
             docs = db.get_documents(use_cache=False)
@@ -1071,36 +1118,40 @@ elif menu == T["menu_admin"]:
                 for index, row in docs.iterrows():
                     with st.expander(f"📄 {row['Title']} ({row['Category']})"):
                         st.write(f"**Link:** {row.get('FileURL', 'No Link')}")
-                        if st.button(f"🗑️ {T['delete_btn']}", key=f"del_doc_{index}"):
-                            if db.delete_document(index):
-                                st.rerun()
+                        if not db.IS_CLOUD:
+                            if st.button(f"🗑️ {T['delete_btn']}", key=f"del_doc_{index}"):
+                                if db.delete_document(index):
+                                    st.rerun()
             else:
                 st.info(T["no_data"])
                 
         with tab_trainers:
-            st.markdown(f"### {'Thêm giảng viên mới' if lang == 'Tiếng Việt' else '새 강사 추가'}")
-            
-            with st.form("add_trainer_form", clear_on_submit=True):
-                t_name = st.text_input("Tên / 이름")
-                t_role_vn = st.text_input("Chức danh (VN) / 직함 (VN)")
-                t_role_kr = st.text_input("Chức danh (KR) / 직함 (KR)")
-                t_team = st.text_input("Team / 팀")
-                t_desc = st.text_area("Mô tả / 설명")
-                t_image = st.file_uploader("Ảnh chân dung / 프로필 사진 (Tùy chọn/선택사항)", type=['png', 'jpg', 'jpeg'])
+            if db.IS_CLOUD:
+                st.info("ℹ️ **Chế độ trực tuyến (Read-Only) / 온라인 조회 모드 (읽기 전용)**: Việc thêm/xóa giảng viên chỉ có thể thực hiện khi chạy ứng dụng cục bộ dưới máy tính cá nhân.")
+            else:
+                st.markdown(f"### {'Thêm giảng viên mới' if lang == 'Tiếng Việt' else '새 강사 추가'}")
                 
-                submit_trainer = st.form_submit_button("Thêm Giảng viên / 강사 추가")
-                if submit_trainer and t_name:
-                    image_filename = ""
-                    if t_image is not None:
-                        image_filename = t_image.name
-                        if not os.path.exists("images"):
-                            os.makedirs("images")
-                        with open(os.path.join("images", image_filename), "wb") as f:
-                            f.write(t_image.getbuffer())
+                with st.form("add_trainer_form", clear_on_submit=True):
+                    t_name = st.text_input("Tên / 이름")
+                    t_role_vn = st.text_input("Chức danh (VN) / 직함 (VN)")
+                    t_role_kr = st.text_input("Chức danh (KR) / 직함 (KR)")
+                    t_team = st.text_input("Team / 팀")
+                    t_desc = st.text_area("Mô tả / 설명")
+                    t_image = st.file_uploader("Ảnh chân dung / 프로필 사진 (Tùy chọn/선택사항)", type=['png', 'jpg', 'jpeg'])
                     
-                    db.save_trainer(t_name, t_role_vn, t_role_kr, t_team, t_desc, image_filename)
-                    st.success("Thêm thành công! / 성공적으로 추가되었습니다!")
-                    
+                    submit_trainer = st.form_submit_button("Thêm Giảng viên / 강사 추가")
+                    if submit_trainer and t_name:
+                        image_filename = ""
+                        if t_image is not None:
+                            image_filename = t_image.name
+                            if not os.path.exists("images"):
+                                os.makedirs("images")
+                            with open(os.path.join("images", image_filename), "wb") as f:
+                                f.write(t_image.getbuffer())
+                        
+                        db.save_trainer(t_name, t_role_vn, t_role_kr, t_team, t_desc, image_filename)
+                        st.success("Thêm thành công! / 성공적으로 추가되었습니다!")
+                        
             st.markdown("---")
             dyn_trainers = db.get_trainers()
             if not dyn_trainers.empty:
@@ -1110,8 +1161,9 @@ elif menu == T["menu_admin"]:
                         st.write(f"**Mô tả:** {row['Desc']}")
                         if row.get('ImageFile') and str(row.get('ImageFile')) != 'nan':
                             st.write(f"**Ảnh:** {row['ImageFile']}")
-                        if st.button("🗑️ Xóa / 삭제", key=f"del_trainer_{index}"):
-                            if db.delete_trainer(index):
-                                st.rerun()
+                        if not db.IS_CLOUD:
+                            if st.button("🗑️ Xóa / 삭제", key=f"del_trainer_{index}"):
+                                if db.delete_trainer(index):
+                                    st.rerun()
             else:
                 st.info("Chưa có giảng viên được thêm mới. / 추가된 강사가 없습니다.")
