@@ -11,7 +11,7 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-04-29 03:31:14,Kinh doanh,Thu mua+ Kho,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-08,Sáng 9:30,9.0,Completed,3.0,
 2026-04-29 03:31:55,Kinh doanh,Kinh doanh+ KHSX,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-19,Sáng 9:30,10.0,Completed,6.0,
 2026-04-29 03:32:28,Kinh doanh,Thu mua+ Kho,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-21,Sáng 9:30,9.0,Completed,3.0,
-2026-04-29 03:33:03,Kinh doanh,Kinh doanh+ KHSX,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-05,Sáng 9:30,10.0,Pending,,
+2026-04-29 03:33:03,Kinh doanh,Kinh doanh+ KHSX,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-05,Sáng 9:30,10.0,Completed,4,Hoàn thành
 2026-04-29 03:34:18,Kinh doanh,Thu mua+ Kho,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-28,Sáng 9:30,9.0,Completed,3.0,Hoàn thành
 2026-04-29 06:47:40,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-04,Chiều 13:30,6.0,Completed,5.0,"Vắng 1, nghỉ vợ sinh"
 2026-04-29 06:48:26,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-11,Chiều 13:30,6.0,Pending,,
