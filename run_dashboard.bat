@@ -54,4 +54,17 @@ echo.
 
 streamlit run app.py --server.runOnSave=true --server.port=8501
 
-pause
+echo.
+echo ============================================
+echo    Ung dung da dung.
+echo ============================================
+echo.
+set /p CHOICE="Ban co muon dong bo va cap nhat du lieu moi len Web truc tuyen khong? (Y/N): "
+if /i "%CHOICE%"=="Y" (
+    call update_web.bat
+) else (
+    echo.
+    echo Da bo qua dong bo. Tam biet!
+    echo.
+    pause
+)
