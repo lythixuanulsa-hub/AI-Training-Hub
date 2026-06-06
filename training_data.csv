@@ -3,7 +3,7 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-04-29 02:49:23,Sản xuất,Sản xuất ACT,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-13,Chiều 13:30,6.0,Completed,5.0,
 2026-04-29 02:50:01,Sản xuất,Sản xuất ACT,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-14,Chiều 13:30,6.0,Completed,5.0,
 2026-04-29 02:50:19,Sản xuất,Sản xuất ACT,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-17,Chiều 13:30,6.0,Pending,,
-2026-04-29 03:12:43,RD,RD,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-05,Chiều 13:30,7.0,Completed,7,Lùi lịch sang tháng 6 vì kế hoạch sản xuất model mới gấp
+2026-04-29 03:12:43,RD,RD,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-05,Chiều 13:30,7.0,Completed,7.0,Lùi lịch sang tháng 6 vì kế hoạch sản xuất model mới gấp
 2026-04-29 03:13:14,RD,RD,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-19,Chiều 13:30,4.0,Pending,,
 2026-04-29 03:13:35,RD,RD,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-26,Chiều 13:30,4.0,Pending,,
 2026-04-29 03:27:00,Kinh doanh,Thu mua+ Kho,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-15,Sáng 9:30,9.0,Completed,3.0,
@@ -29,8 +29,8 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-05-03 02:45:58,Kỹ thuật,CAMERA MODULE,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-06,Chiều 13:30,9.0,Pending,,
 2026-05-03 02:49:23,Kỹ thuật,CAMERA MODULE,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-20,Chiều 13:30,9.0,Pending,,
 2026-05-06 09:32:54,Kỹ thuật,CAMERA MODULE,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-27,Chiều 13:30,9.0,Pending,,
-2026-05-28 01:42:58,Sản xuất,Sản xuất Module,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-09,Chiều 13:30,6.0,Pending,,
-2026-05-28 01:44:01,Sản xuất,Sản xuất Module,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-23,Chiều 13:30,6.0,Pending,,
+2026-05-28 01:42:58,Sản xuất,Sản xuất Module,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-23,Chiều 13:30,6.0,Pending,,
+2026-05-28 01:44:01,Sản xuất,Sản xuất Module,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-24,Chiều 13:30,6.0,Pending,,
 2026-05-28 01:44:56,Sản xuất,Sản xuất Module,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-30,Chiều 13:30,6.0,Pending,,
 2026-05-28 01:45:22,Sản xuất,Sản xuất Module,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-07-07,Chiều 13:30,6.0,Pending,,Phải lùi lịch do buổi 1 bận họp đột suất chưa tham gia
 2026-05-29 09:22:21,GA-HR-ACC,GA-HR-ACC,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-25,Chiều 13:30,8.0,Completed,8.0,
