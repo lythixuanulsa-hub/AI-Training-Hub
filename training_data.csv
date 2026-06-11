@@ -26,7 +26,7 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-04-29 07:27:32,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-23,Chiều 13:30,9.0,Completed,6.0,
 2026-04-29 07:27:52,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-30,Chiều 13:30,9.0,Completed,7.0,Hoàn thành
 2026-05-03 02:42:10,Kỹ thuật,CAMERA MODULE,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-13,Chiều 13:30,9.0,Pending,,
-2026-05-03 02:45:58,Kỹ thuật,CAMERA MODULE,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-06,Chiều 13:30,9.0,Completed,9,
+2026-05-03 02:45:58,Kỹ thuật,CAMERA MODULE,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-06,Chiều 13:30,9.0,Completed,9.0,
 2026-05-03 02:49:23,Kỹ thuật,CAMERA MODULE,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-20,Chiều 13:30,9.0,Pending,,
 2026-05-06 09:32:54,Kỹ thuật,CAMERA MODULE,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-27,Chiều 13:30,9.0,Pending,,
 2026-05-28 01:42:58,Sản xuất,Sản xuất Module,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-23,Chiều 13:30,6.0,Pending,,
@@ -34,7 +34,7 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-05-28 01:44:56,Sản xuất,Sản xuất Module,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-30,Chiều 13:30,6.0,Pending,,
 2026-05-28 01:45:22,Sản xuất,Sản xuất Module,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-07-07,Chiều 13:30,6.0,Pending,,Phải lùi lịch do buổi 1 bận họp đột suất chưa tham gia
 2026-05-29 09:22:21,GA-HR-ACC,GA-HR-ACC,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-25,Chiều 13:30,8.0,Completed,8.0,
-2026-05-29 09:26:31,GA-HR-ACC,GA-HR-ACC,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-10,Chiều 13:30,8.0,Pending,,
+2026-05-29 09:26:31,GA-HR-ACC,GA-HR-ACC,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-10,Chiều 13:30,8.0,Completed,9,
 2026-05-29 09:26:49,GA-HR-ACC,GA-HR-ACC,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-12,Chiều 13:30,8.0,Pending,,
 2026-05-29 09:27:08,GA-HR-ACC,GA-HR-ACC,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-16,Chiều 13:30,8.0,Pending,,
 2026-05-29 09:43:55,RD,RD,Buổi 1: Lý thuyết / 1회차: 이론,,2026-04-24,Chiều 13:30,6.0,Completed,6.0,
