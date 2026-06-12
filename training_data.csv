@@ -14,7 +14,7 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-04-29 03:33:03,Kinh doanh,Kinh doanh+ KHSX,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-05,Sáng 9:30,10.0,Completed,4.0,Hoàn thành
 2026-04-29 03:34:18,Kinh doanh,Thu mua+ Kho,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-28,Sáng 9:30,9.0,Completed,3.0,Hoàn thành
 2026-04-29 06:47:40,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-04,Chiều 13:30,6.0,Completed,5.0,"Vắng 1, nghỉ vợ sinh"
-2026-04-29 06:48:26,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-11,Chiều 13:30,6.0,Pending,,
+2026-04-29 06:48:26,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-11,Chiều 13:30,6.0,Completed,5,
 2026-04-29 06:49:17,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-18,Chiều 13:30,6.0,Pending,,
 2026-04-29 06:50:10,Kỹ thuật,ACT Kỹ thuật thiết bị,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-25,Chiều 13:30,6.0,Pending,,
 2026-04-29 07:09:33,QC,QC,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-20,Sáng 09:30,12.0,Completed,11.0,
@@ -34,7 +34,7 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-05-28 01:44:56,Sản xuất,Sản xuất Module,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-30,Chiều 13:30,6.0,Pending,,
 2026-05-28 01:45:22,Sản xuất,Sản xuất Module,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-07-07,Chiều 13:30,6.0,Pending,,Phải lùi lịch do buổi 1 bận họp đột suất chưa tham gia
 2026-05-29 09:22:21,GA-HR-ACC,GA-HR-ACC,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-25,Chiều 13:30,8.0,Completed,8.0,
-2026-05-29 09:26:31,GA-HR-ACC,GA-HR-ACC,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-10,Chiều 13:30,8.0,Completed,9,
+2026-05-29 09:26:31,GA-HR-ACC,GA-HR-ACC,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-10,Chiều 13:30,8.0,Completed,9.0,
 2026-05-29 09:26:49,GA-HR-ACC,GA-HR-ACC,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-12,Chiều 13:30,8.0,Pending,,
 2026-05-29 09:27:08,GA-HR-ACC,GA-HR-ACC,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-16,Chiều 13:30,8.0,Pending,,
 2026-05-29 09:43:55,RD,RD,Buổi 1: Lý thuyết / 1회차: 이론,,2026-04-24,Chiều 13:30,6.0,Completed,6.0,
