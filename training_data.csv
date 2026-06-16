@@ -2,7 +2,7 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-04-29 02:48:55,Sản xuất,Sản xuất ACT,Buổi 1: Lý thuyết / 1회차: 이론,,2026-05-07,Chiều 13:30,6.0,Completed,6.0,
 2026-04-29 02:49:23,Sản xuất,Sản xuất ACT,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-13,Chiều 13:30,6.0,Completed,5.0,
 2026-04-29 02:50:01,Sản xuất,Sản xuất ACT,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-14,Chiều 13:30,6.0,Completed,5.0,
-2026-04-29 02:50:19,Sản xuất,Sản xuất ACT,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-15,Chiều 13:30,6.0,Pending,,
+2026-04-29 02:50:19,Sản xuất,Sản xuất ACT,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-15,Chiều 13:30,6.0,Completed,6.0,Hoành thành
 2026-04-29 03:12:43,RD,RD,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-05,Chiều 13:30,7.0,Completed,7.0,Lùi lịch sang tháng 6 vì kế hoạch sản xuất model mới gấp
 2026-04-29 03:13:14,RD,RD,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-19,Chiều 13:30,4.0,Pending,,
 2026-04-29 03:13:35,RD,RD,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-26,Chiều 13:30,4.0,Pending,,
@@ -25,7 +25,7 @@ Timestamp,Department,Team,Session,Content,Date,TimeSlot,Attendees,Status,ActualA
 2026-04-29 07:27:05,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-05-16,Chiều 13:30,9.0,Completed,,
 2026-04-29 07:27:32,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-05-23,Chiều 13:30,9.0,Completed,6.0,
 2026-04-29 07:27:52,Kỹ thuật,ACT Kỹ thuật sản phẩm,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-05-30,Chiều 13:30,9.0,Completed,7.0,Hoàn thành
-2026-05-03 02:42:10,Kỹ thuật,CAMERA MODULE,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-13,Chiều 13:30,9.0,Pending,,
+2026-05-03 02:42:10,Kỹ thuật,CAMERA MODULE,Buổi 2: Thực hành cơ bản / 2회차: 기본 실습,,2026-06-13,Chiều 13:30,9.0,Completed,9,
 2026-05-03 02:45:58,Kỹ thuật,CAMERA MODULE,Buổi 1: Lý thuyết / 1회차: 이론,,2026-06-06,Chiều 13:30,9.0,Completed,9.0,
 2026-05-03 02:49:23,Kỹ thuật,CAMERA MODULE,Buổi 3: Thực hành nâng cao / 3회차: 심화 실습,,2026-06-20,Chiều 13:30,9.0,Pending,,
 2026-05-06 09:32:54,Kỹ thuật,CAMERA MODULE,Buổi 4: Chia sẻ bài tập / 4회차: 과제 공유,,2026-06-27,Chiều 13:30,9.0,Pending,,
